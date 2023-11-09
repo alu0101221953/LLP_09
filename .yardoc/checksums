@@ -1,0 +1,4 @@
+lib/recursos_educativos.rb 8efae2e92e464ae7601d13c5cac18cbab4a6ce70
+lib/recursos_educativos/version.rb 3449c372d86acde11e877899b0a7a9aa51c05ca4
+lib/recursos_educativos/actividad.rb c0664573a218885522377c825a6c1d6e7c06205d
+lib/recursos_educativos/dificultad.rb b5e5549aba03053081577c4757da8417bf834f3e
