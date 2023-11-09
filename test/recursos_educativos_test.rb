@@ -21,4 +21,12 @@ class RecursosEducativosTest < Test::Unit::TestCase
     assert_equal(Actividad.new(1, "marca", "titulo", "descripcion", :beginner, "tipo", "categoria", "material", 60, "conceptos").conceptos, "conceptos")
   end
 
+  def test_duracion_check
+    assert_equal(Actividad.new(1, "marca", "titulo", "descripcion", :beginner, "tipo", "categoria", "material", 60, "conceptos").duracion_check(60), true)
+    #assert_equal(Actividad.new(1, "marca", "titulo", "descripcion", :beginner, "tipo", "categoria", "material", 0, "conceptos").duracion_check(0), false)
+  end
+
+  def test_to_s
+    assert_equal(Actividad.new(1, 'Marca', 'Titulo','Descripcion', :beginner, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos').to_s, "Identificador: 1\nMarca: Marca\nTítulo: Titulo\nDescripción: Descripcion\nNivel de experiencia: #{:beginner}\nTipo de actividad: Tipo\nCategoría del recurso: Categoria\nMaterial necesario: Material\nDuración: 60 minutos\nConceptos: Conceptos")
+  end
 end

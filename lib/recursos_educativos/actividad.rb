@@ -1,3 +1,4 @@
+require 'recursos_educativos/dificultad'
 
 class Actividad
   attr_reader :id, :marca, :titulo, :descripcion, :nivel, :tipo, :categoria, :material, :duracion, :conceptos
@@ -29,5 +30,9 @@ class Actividad
     else
       return false
     end
+  end
+
+  def to_s
+    "Identificador: #{@id}\nMarca: #{@marca}\nTítulo: #{@titulo}\nDescripción: #{@descripcion}\nNivel de experiencia: #{@nivel}\nTipo de actividad: #{@tipo}\nCategoría del recurso: #{@categoria}\nMaterial necesario: #{@material}\nDuración: #{@duracion} minutos\nConceptos: #{@conceptos}"
   end
 end
