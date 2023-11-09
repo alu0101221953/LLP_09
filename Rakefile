@@ -10,3 +10,8 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task default: :test
+
+desc "Pruebas unitarias"
+task :pruebas_unitarias do
+  sh ruby 'test/recursos_educativos_test.rb'
+end
