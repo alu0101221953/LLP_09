@@ -3,6 +3,7 @@
 require "test_helper"
 require 'test/unit'
 require_relative "../lib/recursos_educativos/actividad"
+require_relative "../lib/recursos_educativos/dificultad"
 
 class RecursosEducativosTest < Test::Unit::TestCase
   def setup
@@ -28,5 +29,9 @@ class RecursosEducativosTest < Test::Unit::TestCase
 
   def test_to_s
     assert_equal(Actividad.new(1, 'Marca', 'Titulo','Descripcion', :beginner, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos').to_s, "Identificador: 1\nMarca: Marca\nTítulo: Titulo\nDescripción: Descripcion\nNivel de experiencia: #{:beginner}\nTipo de actividad: Tipo\nCategoría del recurso: Categoria\nMaterial necesario: Material\nDuración: 60 minutos\nConceptos: Conceptos")
+  end
+
+  def test_duracion_estimada
+    assert_equal(Actividad.new(1, 'Marca', 'Titulo','Descripcion', :beginner, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos').duracion_estimada, "60 minutos")
   end
 end

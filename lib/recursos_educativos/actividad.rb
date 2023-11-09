@@ -35,4 +35,8 @@ class Actividad
   def to_s
     "Identificador: #{@id}\nMarca: #{@marca}\nTítulo: #{@titulo}\nDescripción: #{@descripcion}\nNivel de experiencia: #{@nivel}\nTipo de actividad: #{@tipo}\nCategoría del recurso: #{@categoria}\nMaterial necesario: #{@material}\nDuración: #{@duracion} minutos\nConceptos: #{@conceptos}"
   end
+
+  def duracion_estimada
+    "#{@duracion} minutos"      
+  end
 end
