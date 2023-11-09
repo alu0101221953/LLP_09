@@ -8,3 +8,10 @@ gemspec
 gem "rake", "~> 13.0"
 
 gem "test-unit", "~> 3.0"
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-test'
+end
