@@ -3,7 +3,7 @@ require 'recursos_educativos/dificultad'
 # @author Victor Canovas del Pino
 #
 class Actividad
-  
+  include RecursosEducativos 
   
   attr_accessor :id, :marca, :titulo, :descripcion, :nivel, :tipo, :categoria, :material, :duracion, :conceptos
 
@@ -57,11 +57,5 @@ class Actividad
   # @return [String] Devuelve la información de la actividad.
   def to_s
     "Identificador: #{@id}\nMarca: #{@marca}\nTítulo: #{@titulo}\nDescripción: #{@descripcion}\nNivel de experiencia: #{@nivel}\nTipo de actividad: #{@tipo}\nCategoría del recurso: #{@categoria}\nMaterial necesario: #{@material}\nDuración: #{@duracion} minutos\nConceptos: #{@conceptos}"
-  end
-
-  # Método para mostrar la duración de la actividad
-  # @return [String] Devuelve la duración de la actividad.
-  def duracion_estimada
-    "#{@duracion} minutos"      
   end
 end

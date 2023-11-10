@@ -32,7 +32,8 @@ class RecursosEducativosTest < Test::Unit::TestCase
   end
 
   def test_duracion_estimada
-    assert_equal(Actividad.new(1, 'Marca', 'Titulo','Descripcion', Recursos::BEGINNER, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos').duracion_estimada, "60 minutos")
+    actividad = Actividad.new(1, 'Marca', 'Titulo', 'Descripcion', :beginner, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos')
+    assert_equal('60 minutos', actividad.duracion_estimada(60))
   end
 
   def test_dificultad
@@ -42,3 +43,5 @@ class RecursosEducativosTest < Test::Unit::TestCase
     assert_not_nil Recursos::EXPERT
   end 
 end
+
+
