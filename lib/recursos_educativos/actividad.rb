@@ -61,4 +61,11 @@ class Actividad
 end
 
 class RecursosDigitalesAbiertos < Actividad
+  attr_accessor :uri, :fecha_creacion
+
+  def initialize(id, marca, titulo, descripcion, nivel, tipo, categoria, material, duracion, conceptos, uri, fecha_creacion)
+    super(id, marca, titulo, descripcion, nivel, tipo, categoria, material, duracion, conceptos)
+    @uri = uri
+    @fecha_creacion = fecha_creacion
+  end  
 end
