@@ -7,6 +7,7 @@ require 'test/unit'
 
 class RecursosEducativosTest < Test::Unit::TestCase
   def setup
+    RecursosEducativos.class_variable_set :@@instancias, 0
   end
 
   def test_initialize
@@ -42,6 +43,18 @@ class RecursosEducativosTest < Test::Unit::TestCase
     assert_not_nil Recursos::ADVANCED
     assert_not_nil Recursos::EXPERT
   end 
+
+  def test_instancias
+    recurso1 = Actividad.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos")
+    recurso2 = Actividad.new(2, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos")
+    assert_equal 2, Actividad.class_variable_get(:@@instancias)
+  end
+
+  def test_comparacion # Comparamos por la duracion estimada
+    recurso1 = Actividad.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos")
+    recurso2 = Actividad.new(2, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 120, "conceptos")
+    assert_equal(-1, recurso1.<=>(recurso2))
+  end
 end
 
 class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
@@ -68,4 +81,10 @@ class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
     recurso2 = RecursosDigitalesAbiertos.new(2, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016")
     assert_equal 2, RecursosDigitalesAbiertos.class_variable_get(:@@instancias)
   end  
+
+  def test_comparacion # Ahora comparamos por la fecha de creacion, como la duracion vale lo mismo, no se tiene en cuenta
+    recurso1 = RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016")
+    recurso2 = RecursosDigitalesAbiertos.new(2, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "07/06/2016")
+    assert_equal(-1, recurso1.<=>(recurso2))
+  end
 end
