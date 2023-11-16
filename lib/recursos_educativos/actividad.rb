@@ -7,6 +7,8 @@ class Actividad
   
   attr_accessor :id, :marca, :titulo, :descripcion, :nivel, :tipo, :categoria, :material, :duracion, :conceptos
 
+  @@instancias = 0
+
   # Constructor de la clase Actividad
   #
   # @param id [Integer] Identificador de la actividad.
@@ -35,6 +37,7 @@ class Actividad
       raise ArgumentError, 'La duración debe ser un número mayor que 0'
     end
     @conceptos = conceptos
+    @@instancias += 1
   end 
 
   # Método para comprobar que la duración es un número mayor que 0
