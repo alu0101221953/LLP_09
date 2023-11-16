@@ -23,6 +23,15 @@ class ColeccionRecursosTest < Test::Unit::TestCase
     coleccion.add_recurso(recurso1)
     coleccion.add_recurso(recurso2)
     coleccion.add_recurso(recurso3)
-    assert_equal(coleccion.recursos.size, 3)
+    assert_includes(coleccion.recursos, recurso1)
+    assert_includes(coleccion.recursos, recurso2)
+    assert_includes(coleccion.recursos, recurso3)
+  end
+
+  def test_numero_objetos_aprendizaje
+    recurso1 = Actividad.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos")
+    coleccion = ColeccionRecursos.new(1, "nombre", "categoria")
+    coleccion.add_recurso(recurso1)
+    assert_equal(coleccion.numero_objetos_aprendizaje, 1)
   end
 end
