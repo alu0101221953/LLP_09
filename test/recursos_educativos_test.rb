@@ -52,4 +52,8 @@ class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
     assert_equal 'http://www.google.es', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").uri
     assert_equal '06/06/2016', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").fecha_creacion
   end
+
+  def test_to_s
+    assert_equal(RecursosDigitalesAbiertos.new(1, 'Marca', 'Titulo','Descripcion', Recursos::BEGINNER, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos', 'http://www.google.es', '06/06/2016').to_s, "Identificador: 1\nMarca: Marca\nTítulo: Titulo\nDescripción: Descripcion\nNivel de experiencia: #{Recursos::BEGINNER}\nTipo de actividad: Tipo\nCategoría del recurso: Categoria\nMaterial necesario: Material\nDuración: 60 minutos\nConceptos: Conceptos\nURI: http://www.google.es\nFecha de creación: 06/06/2016")
+  end  
 end
