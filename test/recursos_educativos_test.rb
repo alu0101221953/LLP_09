@@ -48,6 +48,11 @@ class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
   def setup
   end
 
+  def test_herencia
+    assert_kind_of(RecursosEducativos, RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016"))
+    assert_not_nil RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016")
+  end
+
   def test_initialize
     assert_equal 'http://www.google.es', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").uri
     assert_equal '06/06/2016', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").fecha_creacion
