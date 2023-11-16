@@ -61,6 +61,17 @@ class Actividad
   def to_s
     "Identificador: #{@id}\nMarca: #{@marca}\nTítulo: #{@titulo}\nDescripción: #{@descripcion}\nNivel de experiencia: #{@nivel}\nTipo de actividad: #{@tipo}\nCategoría del recurso: #{@categoria}\nMaterial necesario: #{@material}\nDuración: #{@duracion} minutos\nConceptos: #{@conceptos}"
   end
+
+  # Metodo para comprobar la duración estimada de la actividad
+  def <=>(other)
+    if @duracion < other.duracion
+      return -1
+    elsif @duracion > other.duracion
+      return 1
+    else
+      return 0
+    end
+  end
 end
 
 class RecursosDigitalesAbiertos < Actividad
@@ -74,5 +85,16 @@ class RecursosDigitalesAbiertos < Actividad
   
   def to_s  
     super + "\nURI: #{@uri}\nFecha de creación: #{@fecha_creacion}"
+  end
+
+  def <=>(other)
+    super(other)
+    if @fecha_creacion < other.fecha_creacion
+      return -1
+    elsif @fecha_creacion > other.fecha_creacion
+      return 1
+    else
+      return 0
+    end
   end
 end
