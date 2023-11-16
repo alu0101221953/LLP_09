@@ -67,5 +67,9 @@ class RecursosDigitalesAbiertos < Actividad
     super(id, marca, titulo, descripcion, nivel, tipo, categoria, material, duracion, conceptos)
     @uri = uri
     @fecha_creacion = fecha_creacion
-  end  
+  end 
+  
+  def to_s  
+    super + "\nURI: #{@uri}\nFecha de creación: #{@fecha_creacion}"
+  end
 end
