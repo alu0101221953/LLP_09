@@ -40,4 +40,12 @@ class ColeccionRecursosTest < Test::Unit::TestCase
     coleccion.add_recurso(recurso2)
     assert_equal(coleccion.nivel_medio, 2.5)
   end
+
+  def test_map_nivel_to_valor
+    coleccion = ColeccionRecursos.new(1, "nombre", "categoria")
+    assert_equal(coleccion.map_nivel_to_valor(Recursos::BEGINNER), 1)
+    assert_equal(coleccion.map_nivel_to_valor(Recursos::INTERMEDIATE), 2)
+    assert_equal(coleccion.map_nivel_to_valor(Recursos::ADVANCED), 3)
+    assert_equal(coleccion.map_nivel_to_valor(Recursos::EXPERT), 4)
+  end
 end
