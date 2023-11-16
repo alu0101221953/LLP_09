@@ -26,4 +26,27 @@ class ColeccionRecursos
   def numero_objetos_aprendizaje
     @recursos.length
   end
+
+  def nivel_medio
+    nivel = 0
+    @recursos.each do |recurso|
+      nivel += map_nivel_to_valor(recurso.nivel)
+    end
+    nivel / @recursos.length
+  end
+
+  def map_nivel_to_valor(nivel)
+    case nivel
+    when Recursos::BEGINNER
+      1
+    when Recursos::INTERMEDIATE
+      2
+    when Recursos::ADVANCED
+      3
+    when Recursos::EXPERT
+      4
+    else
+      0  # Valor predeterminado si el nivel no coincide con ninguna constante conocida
+    end
+  end
 end
