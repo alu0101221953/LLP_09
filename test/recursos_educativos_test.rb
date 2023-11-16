@@ -46,6 +46,7 @@ end
 
 class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
   def setup
+    RecursosDigitalesAbiertos.class_variable_set :@@instancias, 0
   end
 
   def test_herencia
@@ -60,5 +61,11 @@ class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
 
   def test_to_s
     assert_equal(RecursosDigitalesAbiertos.new(1, 'Marca', 'Titulo','Descripcion', Recursos::BEGINNER, 'Tipo', 'Categoria', 'Material', 60, 'Conceptos', 'http://www.google.es', '06/06/2016').to_s, "Identificador: 1\nMarca: Marca\nTítulo: Titulo\nDescripción: Descripcion\nNivel de experiencia: #{Recursos::BEGINNER}\nTipo de actividad: Tipo\nCategoría del recurso: Categoria\nMaterial necesario: Material\nDuración: 60 minutos\nConceptos: Conceptos\nURI: http://www.google.es\nFecha de creación: 06/06/2016")
+  end  
+
+  def test_instancias
+    recurso1 = RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016")
+    recurso2 = RecursosDigitalesAbiertos.new(2, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016")
+    assert_equal 2, RecursosDigitalesAbiertos.class_variable_get(:@@instancias)
   end  
 end
