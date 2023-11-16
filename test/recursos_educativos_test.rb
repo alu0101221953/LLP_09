@@ -44,4 +44,12 @@ class RecursosEducativosTest < Test::Unit::TestCase
   end 
 end
 
+class RecursosDigitalesAbiertosTest < Test::Unit::TestCase
+  def setup
+  end
 
+  def test_initialize
+    assert_equal 'http://www.google.es', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").uri
+    assert_equal '06/06/2016', RecursosDigitalesAbiertos.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos", "http://www.google.es", "06/06/2016").fecha_creacion
+  end
+end
