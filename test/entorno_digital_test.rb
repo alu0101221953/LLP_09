@@ -31,4 +31,13 @@ class ColeccionRecursosTest < Test::Unit::TestCase
     coleccion.add_recurso(recurso1)
     assert_equal(coleccion.numero_objetos_aprendizaje, 1)
   end
+
+  def test_nivel_medio
+    recurso1 = Actividad.new(1, "marca", "titulo", "descripcion", Recursos::BEGINNER, "tipo", "categoria", "material", 60, "conceptos")
+    recurso2 = Actividad.new(2, "marca", "titulo", "descripcion", Recursos::EXPERT, "tipo", "categoria", "material", 60, "conceptos")
+    coleccion = ColeccionRecursos.new(1, "nombre", "categoria")
+    coleccion.add_recurso(recurso1)
+    coleccion.add_recurso(recurso2)
+    assert_equal(coleccion.nivel_medio, 2.5)
+  end
 end
