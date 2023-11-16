@@ -22,4 +22,8 @@ class ColeccionRecursos
   def add_recurso(recurso)
     @recursos << recurso
   end
+
+  def numero_objetos_aprendizaje
+    @recursos.length
+  end
 end
