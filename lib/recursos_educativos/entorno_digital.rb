@@ -32,7 +32,7 @@ class ColeccionRecursos
     @recursos.each do |recurso|
       nivel += map_nivel_to_valor(recurso.nivel)
     end
-    nivel / @recursos.length
+    nivel.to_f / @recursos.length
   end
 
   def map_nivel_to_valor(nivel)
