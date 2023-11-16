@@ -59,3 +59,6 @@ class Actividad
     "Identificador: #{@id}\nMarca: #{@marca}\nTítulo: #{@titulo}\nDescripción: #{@descripcion}\nNivel de experiencia: #{@nivel}\nTipo de actividad: #{@tipo}\nCategoría del recurso: #{@categoria}\nMaterial necesario: #{@material}\nDuración: #{@duracion} minutos\nConceptos: #{@conceptos}"
   end
 end
+
+class RecursosDigitalesAbiertos < Actividad
+end
