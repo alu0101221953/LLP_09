@@ -7,8 +7,19 @@
 # obtener el numero de objetos de aprendizaje que la componen y el nivel medio de la misma.
 
 require 'recursos_educativos/dificultad'
+require 'recursos_educativos/actividad'
 
 class ColeccionRecursos
   attr_accessor :codigo, :nombre, :categoria, :recursos
-  
+
+  def initialize(codigo, nombre, categoria)
+    @codigo = codigo
+    @nombre = nombre
+    @categoria = categoria
+    @recursos = []
+  end
+
+  def add_recurso(recurso)
+    @recursos << recurso
+  end
 end
